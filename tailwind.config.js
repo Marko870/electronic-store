@@ -20,7 +20,8 @@ export default {
         "Logo": "url('./src/assets/electronic-store-logo.svg')",
         "hero": "url('./src/assets/electronic-store-hero-image.jpg')",
         "heroLogo": "url('./src/assets/electronic-store-brand-logo-00.png')",
-        "productDisc": "url('./src/assets/product-image-000099.jpg')"
+        "productDisc": "url('./src/assets/product-image-000099.jpg')",
+        "support": "url('./src/assets/electronic-store-support-team.png')"
       },
       animation: {
         slideup: 'slideup .5s ease-in-out',

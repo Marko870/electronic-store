@@ -7,7 +7,7 @@ const SideBarCart = () => {
   let { showCart, cartItems,totalCartPrice } = useSelector((state) => state.cart)
   const dispatch = useDispatch();
   const showHide = () => dispatch(showOffOnCart())
-
+  console.log(cartItems)
   return (
     <div className="text-gray-500">
       <div className={`w-screen min-h-screen z-40 fixed  bg-black bg-opacity-70 top-0 right-0 cursor-pointer ${showCart ? "block" : "hidden"} `} onClick={showHide}> 
@@ -20,17 +20,20 @@ const SideBarCart = () => {
           <span className="text-xl font-bold text-gray-700 rounded-sm cursor-pointer " onClick={showHide}>X</span> 
         </div>
         <hr />
-        <div className="p-8 max-w-full flex flex-col justify-between h-[88%]">
-          {cartItems ? (
-            <ul>
-              {
-                cartItems.map((item, i) => (
-                <SideBarCartItem key={i} item={item} dispatch={dispatch } i={i} />
-                ))}
-            </ul>
-          ) :
-            <div>there is no products added</div>
-          }
+        <div className="p-8 max-w-full flex flex-col justify-between h-[88%] ">
+          <div className="overflow-y-scroll">
+              {cartItems.length ? (
+               <ul>
+                  {
+                    cartItems.map((item, i) => (
+                   <SideBarCartItem key={i} item={item} dispatch={dispatch } i={i} />
+                   ))}
+                </ul>
+              ) :
+                <div>there is no products added</div>
+              }
+          </div>
+         
           <div>
           <div className="flex justify-between p-3 border-t">
           <span className="text-xl">Subtotal:</span>

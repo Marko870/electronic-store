@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../features/features/cartSlice";
-import Reviews from "../component/Reviews";
+// import Reviews from "../component/Reviews";
 import Discription from "../component/Discription";
 import RelatedProducts from "../component/RelatedProducts";
 const ProductPage = () => {
@@ -12,19 +12,19 @@ const ProductPage = () => {
   const { data, isLoading } = useGetProductByIdQuery(id);
   const [mainImg, setMainImg] = useState();
   const [count, setCount] = useState(1);
-  const [toggleU,setToggleU] = useState("D")
+  const [toggleU, setToggleU] = useState("D");
   const dispatch = useDispatch();
 
   const decreament = () => count > 1 ? setCount(count - 1) : setCount(1)
   const increament = () => setCount(count + 1);
   const setNum = (ev) => setCount(ev.target.value);
   const submitHandler = (ev) => {
-    ev.preventDefault()
+    ev.preventDefault();
     dispatch(addProduct({ data, count }));
     setCount(1);
   }
   
-  console.log(isLoading);
+  console.log(useGetProductByIdQuery(id));
   if (isLoading) return (<div className="flex items-center justify-center text-3xl font-semibold">Loading...</div>);
   return (
     <section className=" bg-main-background">
@@ -42,8 +42,8 @@ const ProductPage = () => {
         </div>
         <div className="flex-1">
           <div className="text-lg text-gray-400 ">
-            <Link to={"/"}>Home / </Link>
-            <Link to={`/categroyPage/${data.category}`}>{ data.category} / </Link>
+            <Link className=" hover:text-blue-500" to={"/"}>Home / </Link>
+            <Link className="hover:text-blue-500" to={`/categroyPage/${data.category}`}>{ data.category} / </Link>
             <span> { data.title }</span>
           </div>
           <h2 className="mt-3 mb-5 text-3xl font-bold text-gray-700 sm:text-4xl">{data.title}</h2>
@@ -79,11 +79,11 @@ const ProductPage = () => {
           <div className="flex gap-5">
             <h1 className={`mt-3 w-fit pb-1 mb-6 text-xl font-bold text-gray-80 cursor-pointer 
             ${toggleU === "D" ? "border-b-[3px] border-b-main-blue" : ""}`} onClick={() => setToggleU("D")}>Discription</h1>
-            <h1 className={`mt-3 mb-6 text-xl font-bold text-gray-800 
-            cursor-pointer pb-1 w-fit ${toggleU === "R" ? "border-b-[3px] border-b-main-blue":""}`} onClick={() => setToggleU("R")}>Reviews {"(0)"}</h1>
+            {/*<h1 className={`mt-3 mb-6 text-xl font-bold text-gray-800 
+            cursor-pointer pb-1 w-fit ${toggleU === "R" ? "border-b-[3px] border-b-main-blue":""}`} onClick={() => setToggleU("R")}>Reviews {"(0)"}</h1>*/}
           </div>
           <Discription toggleU={toggleU} setToggleU={setToggleU} />
-          <Reviews toggleU={toggleU} setToggleU={setToggleU} />
+          {/* <Reviews toggleU={toggleU} setToggleU={setToggleU} />*/}
         </section>
         <section>
           <RelatedProducts mainProduct={data} />

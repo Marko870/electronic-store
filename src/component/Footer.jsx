@@ -2,7 +2,7 @@ import Logo from "../assets/electronic-store-logo.svg"
 import { footerLinks } from "../constants"
 const Footer = () => {
   return (
-    <footer id="footerPart" className=' padding-x padding-y bg-gray-200'>
+    <footer id="footerPart" className=' padding-x padding-y bg-gray-200 bg-'>
       <main className="max-w-[1440px] mx-auto">
         <section className="flex gap-20">
           <div>

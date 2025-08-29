@@ -3,6 +3,7 @@ import Features from "../component/Features";
 import Categorys from "../component/Categoryies";
 import Banners from "../component/Banners";
 import Trends from "../component/Trends";
+import ContactUs from "../component/ContactUs";
 const Home = () => {
     return (
         <main className=" bg-main-background">
@@ -10,7 +11,8 @@ const Home = () => {
           <Features />
           <Categorys />
           <Banners />
-          <Trends />
+        <Trends />
+        <ContactUs />
         </main> 
       
   )

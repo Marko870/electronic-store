@@ -6,7 +6,9 @@ const ProductCard = ({ product}) => {
     
     
     return (
-        <Link to={`/productPage/${product.id}`} className="block max-sm:w- max-w-[240px] animate-slidedown">
+        <Link to={`/productPage/${product.id}`} onClick={() => {
+            window.scrollTo(0, 0);
+        }} className="block max-sm:w- max-w-[240px] animate-slidedown">
             <div className="relative">
                 <img src={product.image} alt="" />
                 <span className=" absolute bg-main-white rounded-full px-3 py-1 text-gray-600 font-semibold top-[7%] left-[7%] shadow-xl "> Sale!</span>
